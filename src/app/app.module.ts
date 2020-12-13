@@ -1,20 +1,57 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//firebase services
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+//angular material modules
+import { MatTableModule } from '@angular/material/table';
+import { MatGridListModule } from '@angular/material/grid-list';
+import {MatGridTileHarness} from '@angular/material/grid-list/testing';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddEventComponent } from './Dashboard/add-event/add-event.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClassmentComponent } from './Public/classment/classment.component';
+import { HomeComponent } from './Public/home/home.component';
+import { SidebarComponent } from './utils/sidebar/sidebar.component';
+import { DashComponent } from './Dashboard/dash/dash.component';
+import { SignInComponent } from './Public/Authentifications/sign-in/sign-in.component';
+import { SignUpComponent } from './Public/Authentifications/sign-up/sign-up.component';
+import { ForgetPasswordComponent } from './Public/Authentifications/forget-password/forget-password.component';
+import { VerifyMailComponent } from './Public/Authentifications/verify-mail/verify-mail.component';
+import { AuthService } from './_services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddEventComponent
+    AddEventComponent,
+    ClassmentComponent,
+    HomeComponent,
+    SidebarComponent,
+    DashComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgetPasswordComponent,
+    VerifyMailComponent,
+    
+    
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatGridListModule,
+    //MatGridTileHarness
+    
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
