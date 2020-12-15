@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mini-8f90c": {
+      "hosting": {
+        "project": [
+          "mini-8f90c"
+        ]
+      }
+    }
+  }
+}
