@@ -1,4 +1,17 @@
-table {
-    width: 40%;
-  }
+table{
+  width:80%;
+  height: 65%;
+  overflow:scroll;
+  overflow-x:hidden;
+  margin-left: 10%;
+}
 
+@media(max-width:800px){
+  table{
+    width:90%;
+    height: 70%;
+    overflow:scroll;
+    overflow-x:hidden;
+    margin-left: 5%;
+  }
+}

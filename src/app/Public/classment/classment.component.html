@@ -1,4 +1,4 @@
-<div class="centers">
+
 
 <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -8,7 +8,14 @@
     <!-- Position Column -->
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> Rank </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <td mat-cell *matCellDef="let element"
+      >
+      <span *ngIf="element.position==1"> <img src="/assets/img/icons/gold.png" style="width: 40px;"></span>
+      <span *ngIf="element.position==2"> <img src="/assets/img/icons/silver.png" style="width: 40px;"></span>
+      <span *ngIf="element.position==3"> <img src="/assets/img/icons/bronze.png" style="width: 40px;"></span>
+      <span *ngIf="element.position > 3"> {{element.position}}</span>
+      
+  </td>
     </ng-container>
   
     <!-- Name Column -->
@@ -33,5 +40,3 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   
-
-  </div>

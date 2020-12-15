@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -29,8 +30,12 @@ export class ClassmentComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  show:boolean = true;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+  valueChange(value){
+    console.log(value);
+  }
 
 
 }

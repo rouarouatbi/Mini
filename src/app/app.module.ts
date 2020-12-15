@@ -8,7 +8,9 @@ import { environment } from '../environments/environment';
 //angular material modules
 import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
-import {MatGridTileHarness} from '@angular/material/grid-list/testing';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +25,7 @@ import { SignUpComponent } from './Public/Authentifications/sign-up/sign-up.comp
 import { ForgetPasswordComponent } from './Public/Authentifications/forget-password/forget-password.component';
 import { VerifyMailComponent } from './Public/Authentifications/verify-mail/verify-mail.component';
 import { AuthService } from './_services/auth.service';
+import { EventComponent } from './Public/event/event.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +35,11 @@ import { AuthService } from './_services/auth.service';
     HomeComponent,
     SidebarComponent,
     DashComponent,
-    SignInComponent,
+    
     SignUpComponent,
     ForgetPasswordComponent,
     VerifyMailComponent,
+    EventComponent,
     
     
   ],
@@ -48,10 +52,12 @@ import { AuthService } from './_services/auth.service';
     BrowserAnimationsModule,
     MatTableModule,
     MatGridListModule,
+    MatButtonModule,
+    MatDialogModule
     //MatGridTileHarness
     
   ],
-  providers: [AuthService],
+  providers: [AuthService,SignInComponent,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

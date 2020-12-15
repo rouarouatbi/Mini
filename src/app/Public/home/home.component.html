@@ -1,10 +1,11 @@
 <p>home works!</p>
-<mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile>1sddddddddd</mat-grid-tile>
+<mat-grid-list [cols]="breakpoint" cols="2" rowHeight="1:2" (window:resize)="onResize($event)">
+    <mat-grid-tile>1sddddddddd <br>
+        <app-event></app-event>
+    </mat-grid-tile>
     <mat-grid-tile>
         <app-classment></app-classment>
     </mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
+    
   </mat-grid-list>
 
