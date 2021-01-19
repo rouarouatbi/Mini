@@ -1,0 +1,17 @@
+mat-card{
+    background-color: rgb(153, 165, 190);
+}
+mat-form-field { 
+    background-color: rgb(232, 237, 238);
+    width: 90%;
+    margin: 15px;
+    padding-top : 15px ;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 0.5%;
+}
+
+ .Sign{
+    float: right;
+    
+}

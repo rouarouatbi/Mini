@@ -6,6 +6,7 @@ import { SignUpComponent } from './Public/Authentifications/sign-up/sign-up.comp
 import { ForgetPasswordComponent } from './Public/Authentifications/forget-password/forget-password.component';
 import { VerifyMailComponent } from './Public/Authentifications/verify-mail/verify-mail.component';
 import { DashComponent } from './Dashboard/dash/dash.component';
+import { SidebarComponent } from './utils/sidebar/sidebar.component';
 import { AuthGuard } from './_services/guard/auth.guard';
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path:'dashboard',
     component: DashComponent,canActivate: [AuthGuard]
+  },
+  {
+    path:'dash',
+    component: SidebarComponent,
   },
   {
     path: 'forget-password',

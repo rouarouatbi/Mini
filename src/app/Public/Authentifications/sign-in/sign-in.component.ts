@@ -12,14 +12,15 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   SignIn(adress: string , password : string){
     this.authS.SignIn(adress, password)
     .then(res=>console.log(res));
   }
 
   GoogleAuth(){
-    this.authS.GoogleAuth()
-    .then(res=>console.log(res));
-  }
+   // this.authS.GoogleAuth()
+   this.authS.googleSignIn()
+  } 
 
 }

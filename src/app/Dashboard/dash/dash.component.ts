@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/_services/auth.service';
+import { User } from 'src/app/_services/user';
 
 @Component({
   selector: 'app-dash',
@@ -7,11 +9,15 @@ import { AuthService } from 'src/app/_services/auth.service';
   styleUrls: ['./dash.component.css']
 })
 export class DashComponent implements OnInit {
-  userData :any;
-  constructor(private authservice:AuthService) { }
+  userData :User;
+  userData2 : Observable<User>;
+  
+  constructor(public authservice:AuthService) { 
+    this.userData = JSON.parse(localStorage.getItem('user')); 
+  }
 
   ngOnInit(): void {
-    this.userData = this.authservice.userData;
+     
   }
 
   SignOut(){
