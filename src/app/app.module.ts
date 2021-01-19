@@ -16,11 +16,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,6 +39,10 @@ import { VerifyMailComponent } from './Public/Authentifications/verify-mail/veri
 import { AuthService } from './_services/auth.service';
 import { EventComponent } from './Public/event/event.component';
 import { NavbarComponent } from './utils/navbar/navbar.component';
+import { HomeNavbarComponent } from './utils/home-navbar/home-navbar.component';
+import { SubmitComponent } from './Public/submit/submit.component';
+import { DragDropDirective } from './utils/drag-drop.directive';
+
 
 @NgModule({
   declarations: [
@@ -51,8 +56,15 @@ import { NavbarComponent } from './utils/navbar/navbar.component';
     VerifyMailComponent,
     EventComponent,
     SignUpComponent,
-    NavbarComponent
-   
+    NavbarComponent,
+    SignUpComponent,
+    ForgetPasswordComponent,
+    VerifyMailComponent,
+    HomeNavbarComponent,
+    SubmitComponent,
+    DragDropDirective,
+    
+    
   ],
 
   imports: [
@@ -74,7 +86,10 @@ import { NavbarComponent } from './utils/navbar/navbar.component';
     MatFormFieldModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatInputModule
+    
+    //MatGridTileHarness
     
   ],
   providers: [AuthService,SignInComponent,SignUpComponent],

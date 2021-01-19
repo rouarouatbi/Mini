@@ -8,6 +8,7 @@ import { VerifyMailComponent } from './Public/Authentifications/verify-mail/veri
 import { DashComponent } from './Dashboard/dash/dash.component';
 import { SidebarComponent } from './utils/sidebar/sidebar.component';
 import { AuthGuard } from './_services/guard/auth.guard';
+import { AddEventComponent } from './Dashboard/add-event/add-event.component';
 const routes: Routes = [
   {
     component:HomeComponent,
@@ -18,12 +19,16 @@ const routes: Routes = [
     component: SignInComponent
   },
   {
+    path: 'add-event',
+    component: AddEventComponent
+  },
+  {
     path:'Sign-Up',
     component: SignUpComponent
   },
   {
     path:'dashboard',
-    component: DashComponent,canActivate: [AuthGuard]
+    component: DashComponent
   },
   {
     path:'dash',

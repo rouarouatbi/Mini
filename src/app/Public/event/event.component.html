@@ -1,8 +1,31 @@
-<section>
+<div id="container" >
+<section [style.display]="visible ? 'block' : 'none'" style=" margin-bottom: 1000px;">
+    <h1>Upcoming Event : {{title}}</h1>
+    <!--<countdown [config]="{stopTime: 5000, format: 'medium', timezone:'GMT+1'}" ></countdown>-->
+    <div class="timer" >
+      <span id="days"> {{daysToDday}} </span>Day(s)
+      <span id="hours"> {{hoursToDday}} </span>Hrs 
+      <span id="minutes"> {{minutesToDday}} </span>Min
+      <span id="seconds"> {{secondsToDday}} </span>S
+  </div>
   
-
-    <div class="example-button-row">
-      <button mat-button (click)="openDialog()" >Sign In </button>
-      <button mat-button (click)="openDialog2()" color="primary">Sign Up</button>
-    </div>
   </section>
+
+  <section  [style.display]="visible ? 'none' : 'block'" style=" margin-bottom: 1000px;" >
+    <h1>Ongoing Event : {{title}}</h1>
+    <br>
+  <div>
+   <h3> Description: </h3>
+   <p>{{description}}</p>
+   <h3> Deadline: {{deadlineISO | date}}</h3>
+  </div>
+  <div class="timer" >
+    <span id="days"> {{daysToDday2}} </span>Day(s)
+    <span id="hours"> {{hoursToDday2}} </span>Hrs 
+    <span id="minutes"> {{minutesToDday2}} </span>Min
+    <span id="seconds"> {{secondsToDday2}} </span>S
+</div>
+<button mat-raised-button color="success" (click)="openDialog()">Submit</button>
+
+  </section>
+</div>
