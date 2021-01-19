@@ -10,6 +10,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatInputModule} from '@angular/material/input';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +29,10 @@ import { ForgetPasswordComponent } from './Public/Authentifications/forget-passw
 import { VerifyMailComponent } from './Public/Authentifications/verify-mail/verify-mail.component';
 import { AuthService } from './_services/auth.service';
 import { EventComponent } from './Public/event/event.component';
+import { HomeNavbarComponent } from './utils/home-navbar/home-navbar.component';
+import { SubmitComponent } from './Public/submit/submit.component';
+import { DragDropDirective } from './utils/drag-drop.directive';
+
 
 @NgModule({
   declarations: [
@@ -35,11 +42,13 @@ import { EventComponent } from './Public/event/event.component';
     HomeComponent,
     SidebarComponent,
     DashComponent,
-    
+    EventComponent,
     SignUpComponent,
     ForgetPasswordComponent,
     VerifyMailComponent,
-    EventComponent,
+    HomeNavbarComponent,
+    SubmitComponent,
+    DragDropDirective,
     
     
   ],
@@ -53,7 +62,10 @@ import { EventComponent } from './Public/event/event.component';
     MatTableModule,
     MatGridListModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatToolbarModule,
+    MatInputModule
+    
     //MatGridTileHarness
     
   ],

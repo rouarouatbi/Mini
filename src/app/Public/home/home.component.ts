@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { HomeNavbarComponent } from '../../utils/home-navbar/home-navbar.component';
+
 
 @Component({
   selector: 'app-home',
