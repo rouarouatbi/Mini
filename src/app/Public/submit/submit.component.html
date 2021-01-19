@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Submit your work before the deadline</h1>
+<div mat-dialog-content>You can either drop a file or a link to your work! </div>
+<div mat-dialog-content>Make sure your link is valid. </div>
+
+<form class="example-form">
+
+    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+        <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+      </div>
+      <div  class="files-list" *ngFor="let file of files;let i= index">
+          <p> {{ file }} </p>
+          <button class="delete-file" (click)="deleteAttachment(i)">
+            <img src="../../../assets/Recycle_Bin_Full.png">
+          </button>
+       </div>
+  <br>
+  <h3>Or</h3>
+  <mat-form-field class="example-full-width">
+    <mat-label>Put a link</mat-label>
+    <textarea matInput placeholder="Ex. github link/ drive link..."></textarea>
+  </mat-form-field>
+</form>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close color="success">Close</button>
+</div>
