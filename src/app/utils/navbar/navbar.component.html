@@ -3,13 +3,14 @@
     <span><img src="assets/img/icons/dsc.svg"></span>
     <span class="example-spacer"></span>
     <span class="event">Events timeline</span>
+    <span class="event" (click)="openDialog_Contact()">Contact us</span>
     <span id="right" *ngIf="this.logged">
             <img src="assets/img/icons/user.png">
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item>
+                <button mat-menu-item (click)="openDialog_Profile()">
                   <mat-icon>dialpad</mat-icon>
                   <span>Edit profile</span>
                 </button>

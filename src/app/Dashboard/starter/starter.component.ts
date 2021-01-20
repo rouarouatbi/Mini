@@ -1,26 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/_services/auth.service';
 import { User } from 'src/app/_services/user';
 
 @Component({
-  selector: 'app-dash',
-  templateUrl: './dash.component.html',
-  styleUrls: ['./dash.component.css']
+  selector: 'app-starter',
+  templateUrl: './starter.component.html',
+  styleUrls: ['./starter.component.css']
 })
-export class DashComponent implements OnInit {
-  
-  userData2 : Observable<User>;
-  showFiller = false;
-  typesOfShoes: string[] = ['Boots', 'Clogs'];
-  
+export class StarterComponent implements OnInit {
+  userData :User;
   constructor(public authservice:AuthService) { 
-    
+    this.userData = JSON.parse(localStorage.getItem('user')); 
   }
 
   ngOnInit(): void {
-    
-    
   }
 
   SignOut(){

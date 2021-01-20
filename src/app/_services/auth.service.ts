@@ -16,7 +16,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 export class AuthService {
 
   userData: any; 
-  userData1: User;
+  userData2: any;
   id:any;
   user$: Observable<User>;
 
@@ -35,7 +35,7 @@ export class AuthService {
         
        // console.log("get user with id from firestore ::",this.afs.collection(`users/${this.id}`).snapshotChanges()); 
 
-        //this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+        this.afs.doc<User>(`users/${user.uid}`).valueChanges();
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -68,10 +68,23 @@ export class AuthService {
   SignIn(email, password) {
     return firebase.auth().signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-          console.log("result: ", result)
-        });        
+        this.getUserById(result.user.uid).then((res:any)=>{
+          this.userData2 = res;
+      
+          console.log("roles",res.data().roles);
+          if(res.data().roles === "competitor"){
+            this.ngZone.run(() => {
+              location.reload();
+              this.router.navigate(['/']);
+              console.log("user is connecting ... role:",res.roles);
+            });        
+          }else
+          if(res.data().roles === "admin"){
+            this.router.navigate(['dashboard']);
+              console.log("admin is connecting ... role:",res.roles); 
+          }
+        })
+        
         console.log("in the signIn methode using mail and password ",localStorage.getItem('user'));
       //  console.log("user.role",this.userData.roles);
 
@@ -103,7 +116,7 @@ export class AuthService {
     const docRef= this.afs.collection('users').doc(uid);
   
     const userData: User = {
-      uid: data.uid,
+      uid: uid,
       email: data.email,
       displayName: data.displayName,
       photoURL: data.photoURL,
@@ -113,7 +126,7 @@ export class AuthService {
       score : 0,
     }
     setTimeout(() => {
-      this.afs.collection('users').add(userData);
+      this.afs.collection('users').doc(uid).set(userData);
     }, 3500);
    
   }
@@ -151,7 +164,7 @@ export class AuthService {
     return firebase.auth().signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['dashboard/starter']);
         })    
     }).catch((error) => {
       window.alert(error)
@@ -172,6 +185,8 @@ export class AuthService {
     })
   }
 
-
+   getUserById(id:string){
+    return this.afs.collection('users').doc(id).ref.get();
+  }
 
 }

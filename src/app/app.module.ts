@@ -21,8 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
-
-
+import { MatListModule } from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +41,9 @@ import { NavbarComponent } from './utils/navbar/navbar.component';
 import { HomeNavbarComponent } from './utils/home-navbar/home-navbar.component';
 import { SubmitComponent } from './Public/submit/submit.component';
 import { DragDropDirective } from './utils/drag-drop.directive';
+import { StarterComponent } from './Dashboard/starter/starter.component';
+import { ProfileComponent } from './Public/profile/profile.component';
+import { ContactComponent } from './Public/contact/contact.component';
 
 
 @NgModule({
@@ -63,6 +65,9 @@ import { DragDropDirective } from './utils/drag-drop.directive';
     HomeNavbarComponent,
     SubmitComponent,
     DragDropDirective,
+    StarterComponent,
+    ProfileComponent,
+    ContactComponent,
     
     
   ],
@@ -87,12 +92,13 @@ import { DragDropDirective } from './utils/drag-drop.directive';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
-    MatInputModule
+    MatInputModule,
+    MatListModule
     
     //MatGridTileHarness
     
   ],
-  providers: [AuthService,SignInComponent,SignUpComponent],
+  providers: [AuthService,SignInComponent,SignUpComponent,ProfileComponent,ContactComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

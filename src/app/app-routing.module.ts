@@ -9,6 +9,7 @@ import { DashComponent } from './Dashboard/dash/dash.component';
 import { SidebarComponent } from './utils/sidebar/sidebar.component';
 import { AuthGuard } from './_services/guard/auth.guard';
 import { AddEventComponent } from './Dashboard/add-event/add-event.component';
+import { StarterComponent } from './Dashboard/starter/starter.component';
 const routes: Routes = [
   {
     component:HomeComponent,
@@ -28,7 +29,14 @@ const routes: Routes = [
   },
   {
     path:'dashboard',
-    component: DashComponent
+    component: DashComponent,
+    children:[
+      {
+        path: 'add-event',
+        component: AddEventComponent
+      },
+      {path: 'starter', component: StarterComponent}
+    ]
   },
   {
     path:'dash',

@@ -1,0 +1,18 @@
+<div class="row" *ngIf="userData as user">
+    <div class="col-md-12">
+      <div class="media">
+        <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(userData.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+          alt="{{userData.displayName}}">
+          <div class="media-body">
+            <h1>Hello: <strong>{{(userData.displayName) ? user.displayName : 'User'}}</strong></h1>
+            <p>User ID: <strong>{{userData.uid}}</strong></p>
+            <p>Email: <strong>{{userData.email}}</strong></p>
+            <p>photo: <strong>{{userData.photoURL}}</strong></p>
+            <p>ROle:<strong>{{userData.roles}}</strong> </p> 
+            <p>ROle:<strong>{{userData.score}}</strong> </p> 
+            <p>Email Verified: <strong>{{userData.emailVerified}}</strong></p>
+            <button (click)="SignOut()">signout</button>
+          </div>
+      </div>
+    </div>
+  </div>

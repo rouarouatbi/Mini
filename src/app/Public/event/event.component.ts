@@ -70,10 +70,11 @@ constructor(public dialog: MatDialog) {}
   openDialog() {
     this.dialog.open(SubmitComponent);
   }
-
+  isLogged :boolean = false;
   ngOnInit() {
      this.subscription = interval(1000)
          .subscribe(x => { this.getTimeDifference(); this.getDeadline();});
+    if(localStorage.getItem('user')!== "null") this.isLogged = true;
          
   }
 
